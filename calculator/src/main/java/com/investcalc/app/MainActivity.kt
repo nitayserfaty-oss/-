@@ -3,7 +3,9 @@ package com.investcalc.app
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.view.WindowInsets
 import android.webkit.JavascriptInterface
 import android.webkit.WebChromeClient
 import android.webkit.WebResourceRequest
@@ -23,6 +25,19 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         webView = WebView(this)
         setContentView(webView)
+
+        // Android 15 draws apps edge-to-edge: keep the page clear of the status bar and navigation bar.
+        webView.setOnApplyWindowInsetsListener { v, insets ->
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                val bars = insets.getInsets(WindowInsets.Type.systemBars() or WindowInsets.Type.displayCutout())
+                v.setPadding(bars.left, bars.top, bars.right, bars.bottom)
+            } else {
+                @Suppress("DEPRECATION")
+                v.setPadding(insets.systemWindowInsetLeft, insets.systemWindowInsetTop,
+                    insets.systemWindowInsetRight, insets.systemWindowInsetBottom)
+            }
+            insets
+        }
 
         with(webView.settings) {
             javaScriptEnabled = true
