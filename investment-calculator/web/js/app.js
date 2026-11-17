@@ -475,7 +475,7 @@
     const diffAbs = Math.abs(c.diff);
     const be = C.breakEvenAppreciation(state.re, state.st, o);
     let html = '<div class="card verdict"><div class="v-title">אחרי ' + o.years + ' שנים, לפי ההנחות שלכם</div>' +
-      '<div class="v-main">' + winnerName + ' מוביל ב-' + N(money(diffAbs)) + '</div>' +
+      '<div class="v-main">' + winnerName + (c.winner === 're' ? ' מוביל' : ' מובילה') + ' ב-' + N(money(diffAbs)) + '</div>' +
       '<div class="v-sub">הפער אחרי כל המיסים והעמלות, ' + N(moneyShort(diffAbs / re.cpiFactor)) + ' במונחי היום</div></div>';
 
     html += '<div class="vs">' + side('re', 'נדל"ן 🏠', re.netWorth, [
@@ -814,8 +814,15 @@
       list.unshift({ name: name.slice(0, 60), at: Date.now(), re: state.re, st: state.st, cmp: state.cmp });
       saveScenarios(list.slice(0, 30)); inp.value = ''; renderScenarios(); toast('התרחיש נשמר');
     });
-    $('#reset-all').addEventListener('click', function () {
-      if (!confirm('לאפס את כל הנתונים שהזנתם לערכי ברירת המחדל?')) return;
+    const resetBtn = $('#reset-all');
+    let resetArmed = null;
+    resetBtn.addEventListener('click', function () {
+      if (!resetArmed) {
+        resetBtn.textContent = 'לחצו שוב לאישור האיפוס';
+        resetArmed = setTimeout(function () { resetArmed = null; resetBtn.textContent = 'איפוס לברירת המחדל'; }, 3500);
+        return;
+      }
+      clearTimeout(resetArmed); resetArmed = null; resetBtn.textContent = 'איפוס לברירת המחדל';
       const keepTab = state.tab;
       state = JSON.parse(JSON.stringify(DEFAULT_STATE)); state.tab = keepTab; save();
       rendered.tools = false; renderAllForms(); toast('הערכים אופסו');
