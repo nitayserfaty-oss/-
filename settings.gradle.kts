@@ -14,3 +14,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "ShomerEinayim"
 include(":app")
+include(":calculator")

@@ -22,16 +22,30 @@ jobs:
         with:
           gradle-version: 8.14.3
 
-      - name: Run tests and build APK
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Investment calculator – unit tests
+        run: node --test investment-calculator/tests/*.test.js
+
+      - name: Run tests and build APKs
         run: gradle testDebugUnitTest assembleDebug --no-daemon
 
-      - name: Rename APK
-        run: cp app/build/outputs/apk/debug/app-debug.apk ShomerEinayim.apk
+      - name: Rename APKs
+        run: |
+          cp app/build/outputs/apk/debug/app-debug.apk ShomerEinayim.apk
+          cp calculator/build/outputs/apk/debug/calculator-debug.apk InvestmentCalculator.apk
 
       - uses: actions/upload-artifact@v4
         with:
           name: ShomerEinayim-apk
           path: ShomerEinayim.apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: InvestmentCalculator-apk
+          path: InvestmentCalculator.apk
 
       - name: Publish download link (GitHub Release)
         uses: softprops/action-gh-release@v2
@@ -40,3 +54,11 @@ jobs:
           name: שומר עיניים – גרסה אחרונה
           prerelease: true
           files: ShomerEinayim.apk
+
+      - name: Publish download link – investment calculator
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: calculator-latest
+          name: מחשבון השקעות – גרסה אחרונה
+          prerelease: true
+          files: InvestmentCalculator.apk

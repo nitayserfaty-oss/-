@@ -1,0 +1,14 @@
+{
+  "name": "מחשבון השקעות – נדל\"ן מול בורסה",
+  "short_name": "מחשבון השקעות",
+  "lang": "he",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f3f0",
+  "theme_color": "#1c5cab",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
