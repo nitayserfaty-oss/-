@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">שומר עיניים</string>
+    <string name="lists_title">רשימות אישיות</string>
+    <string name="status_on">הסינון פעיל ✓</string>
+    <string name="status_off">הסינון כבוי</string>
+    <string name="btn_start">הפעל סינון</string>
+    <string name="btn_stop">כבה סינון</string>
+    <string name="blocked_count">אתרים שנחסמו: %1$d</string>
+    <string name="btn_lists">רשימות חסימה / היתר אישיות</string>
+    <string name="btn_pin">הגדרת / שינוי קוד נעילה</string>
+    <string name="btn_admin">הגנה מפני הסרה (מנהל מכשיר)</string>
+    <string name="btn_always_on">הגדרת \"VPN תמידי\" (מומלץ מאוד)</string>
+    <string name="tips">טיפים להגנה מלאה:\n• הגדירו קוד נעילה ותנו אותו לאדם אחר.\n• בהגדרות ה-VPN סמנו \"VPN תמידי\" ו\"חסום חיבורים ללא VPN\".\n• כבו \"DNS פרטי\" בהגדרות הרשת (הגדרות ← רשת ← DNS פרטי ← כבוי).\n• הפעילו הגנה מפני הסרה.</string>
+    <string name="notif_channel">סינון תכנים</string>
+    <string name="notif_text">הסינון פעיל ומגן על המכשיר</string>
+    <string name="enter_pin">הזן קוד נעילה</string>
+    <string name="new_pin">הזן קוד חדש (4 ספרות לפחות)</string>
+    <string name="wrong_pin">קוד שגוי</string>
+    <string name="pin_saved">הקוד נשמר</string>
+    <string name="pin_too_short">הקוד חייב להכיל לפחות 4 ספרות</string>
+    <string name="ok">אישור</string>
+    <string name="cancel">ביטול</string>
+    <string name="blocked_label">דומיינים לחסימה (אחד בכל שורה):</string>
+    <string name="allowed_label">דומיינים מותרים – עוקפים את החסימה (אחד בכל שורה):</string>
+    <string name="save">שמור</string>
+    <string name="saved">נשמר</string>
+    <string name="admin_explain">מונע הסרה של האפליקציה בלי לבטל קודם את ההרשאה</string>
+    <string name="admin_disable_warning">ביטול ההגנה יאפשר הסרה של שומר עיניים. האם אתה בטוח?</string>
+    <string name="vpn_denied">יש לאשר את בקשת ה-VPN כדי שהסינון יעבוד</string>
+</resources>

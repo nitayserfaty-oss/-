@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#1E5AA8</color>
+    <color name="on">#2E7D32</color>
+    <color name="off">#C62828</color>
+    <color name="bg">#F4F6FA</color>
+    <color name="text">#1A1A1A</color>
+    <color name="muted">#5F6368</color>
+</resources>
